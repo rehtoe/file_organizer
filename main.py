@@ -24,12 +24,12 @@ fextensions = {
     ".rar" : "Archives", 
     ".zip" : "Archives", 
     ".7z" : "Archives", 
-    ".targz" : "Archives", 
+    ".gz" : "Archives", 
     ".csv" : "Data",            # data
     ".json" : "Data", 
     ".xml" : "Data", 
     ".xlsx" : "Data", 
-    "" : "", 
+    69420666 : "Other", 
 }
 
 # Folder to Organize Files into
@@ -37,20 +37,27 @@ directories = ["Archives", "Data", "Documents", "Music", "Other", "Pictures", "V
 
 home_directory = os.path.join(os.path.expanduser('~'))
 directory = os.path.join(home_directory, "file_organizer")
+
+# go to home directory
 def go_home():
-    print("went home")
     comm = "cd " + home_directory
     os.system(comm)
+
+# go to file organizer directory
 def go_scope():
-    print("went scope")
     comm = "cd " + directory
     os.system(comm)
 
+def go_dir(dirrr):
+    comm = "cd " + dirrr
+    os.system(comm)
+
+# if organizer does not exist, create 
 if(not os.path.exists(directory)):
-    print("directory no exist, me work")
     go_home()
     os.makedirs(directory, exist_ok=True)
-
+    
+# checks if directories exists, if not make them
 def directory_logic():
     go_scope()
     for foldername in directories:                         #     checks to ensure directories exists for program to execute
@@ -63,6 +70,7 @@ def directory_logic():
                                                            #        Pictures
                                                            #        Videos
 
+# deletes any empty folders
 def file_cleanup():
     go_scope()
     for foldername in directories:
@@ -73,16 +81,28 @@ def file_cleanup():
             comm = "rmdir " + ph_dir
             os.system(comm)
 
-def organize_files():
-    go_scope()
-    print(directory)
-    for filename in os.listdir(directory):
+def organize_files(orgFolder):
+    go_dir(orgFolder)
+    for filename in os.listdir(orgFolder):
+        if filename in directories:
+            continue
         print(filename)
-        
+        root, extension = os.path.splitext(filename)
+        if extension in fextensions:
+            ph_dir = os.path.join(directory, fextensions[extension], filename)
+            shutil.move(os.path.join(orgFolder, filename), ph_dir)
+            print(f"Moved: {filename} to {fextensions[extension]}")
+        elif not os.path.isdir(filename) and extension == "":
+            ph_dir = os.path.join(orgFolder, filename)
+            organize_files(ph_dir)
+        else:
+            ph_dir = os.path.join(directory, fextensions[69420666], filename) 
+            shutil.move(os.path.join(orgFolder, filename), ph_dir)
+            print(f"Moved: {filename} to {fextensions[69420666]}")
 
 def main():
     directory_logic() # ensures directory structure
-    organize_files() # read the function name.....
+    organize_files(directory) # read the function name.....
     file_cleanup() # deletes folders with no files in them
 
 
