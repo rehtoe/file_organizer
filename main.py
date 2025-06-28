@@ -29,7 +29,7 @@ fextensions = {
     ".json" : "Data", 
     ".xml" : "Data", 
     ".xlsx" : "Data", 
-    69420666 : "Other", 
+    -1 : "Other", 
 }
 
 # Folder to Organize Files into
@@ -79,9 +79,9 @@ def organize_files(orgFolder):
             ph_dir = os.path.join(orgFolder, filename)
             organize_files(ph_dir)
         else:
-            ph_dir = os.path.join(directory, fextensions[69420666], filename) 
+            ph_dir = os.path.join(directory, fextensions[-1], filename) 
             shutil.move(os.path.join(orgFolder, filename), ph_dir)
-            print(f"Moved: {filename} to {fextensions[69420666]}")
+            print(f"Moved: {filename} to {fextensions[-1]}")
 
 # checks directory, if it contains no FILES, deletes it, recurses and searches subfolders 
 def file_cleanup(checkDir):
