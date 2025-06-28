@@ -35,36 +35,47 @@ fextensions = {
 # Folder to Organize Files into
 directories = ["Archives", "Data", "Documents", "Music", "Other", "Pictures", "Videos"]
 
-os.system("cd")
-directory = os.path.join(os.path.expanduser('~'), "file_organizer")     # Working Directory directory to organize
-                                                                        # using file_organizer as a test directory
-
-if(not os.path.exists(directory)):
-    comm = "mkdir file_organizer"
-    os.system("cd")
+home_directory = os.path.join(os.path.expanduser('~'))
+directory = os.path.join(home_directory, "file_organizer")
+def go_home():
+    print("went home")
+    comm = "cd " + home_directory
+    os.system(comm)
+def go_scope():
+    print("went scope")
+    comm = "cd " + directory
     os.system(comm)
 
+if(not os.path.exists(directory)):
+    print("directory no exist, me work")
+    go_home()
+    os.makedirs(directory, exist_ok=True)
+
 def directory_logic():
-    os.system("cd file_organizer")
+    go_scope()
     for foldername in directories:                         #     checks to ensure directories exists for program to execute
         ph_dir = os.path.join(directory, foldername)       #     working_directory (file_organizer for test)
-        if(not os.path.exists(directory)):                 #        Archives 
-            comm = "mkdir " + foldername                   #        Data
-            os.system(comm)                                #        Documents
+        os.makedirs(ph_dir, exist_ok=True)                 #        Archives 
+                                                           #        Data
+                                                           #        Documents
                                                            #        Music
                                                            #        Other
                                                            #        Pictures
                                                            #        Videos
-    os.system("cd ../")
 
 def file_cleanup():
-    for foldername in directories:  
+    go_scope()
+    for foldername in directories:
         ph_dir = os.path.join(directory, foldername)
+        if(not os.path.exists(ph_dir)):
+            continue
         if(not len(os.listdir(ph_dir))):
-            comm = "rm " + ph_dir
+            comm = "rmdir " + ph_dir
             os.system(comm)
 
 def organize_files():
+    go_scope()
+    print(directory)
     for filename in os.listdir(directory):
         print(filename)
         
