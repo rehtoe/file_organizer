@@ -7,7 +7,7 @@ Automatically sorts files into predefined folders (`Documents`, `Pictures`, `Mus
   ```plaintext
   Archives, Data, Documents, Music, Other, Pictures, Videos 
   ``` 
-- Moves files based on their extensions (e.g., .pdf → Documents, .mp4 → Videos).
+- Moves disorganized files based on their extensions (e.g., .pdf → Documents, .mp4 → Videos).
 - Recursively cleans up empty folders.
 
 ### **Usage**
@@ -25,7 +25,7 @@ Automatically sorts files into predefined folders (`Documents`, `Pictures`, `Mus
 - Hardcoded paths (modify script to change).
 - Skips hidden files/directories.
 - File Extension Support:
-  - Archives: .a, .rar, .zip, .7z, .gz
+  - Archives: .a, .rar, .zip, .7z, .tar.gz
   - Data: .csv, .json, .xml, .xlsx
   - Documents: .pdf, .doc, .docx, .odt, .txt
   - Music: .mp3, .wav, .AAC, 
