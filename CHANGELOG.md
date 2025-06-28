@@ -1,5 +1,5 @@
-### **CHANGELOG.md**  
-```markdown
+# **CHANGELOG.md**  
+
 ## v0.2 (Current)  
 - **Added**:  
   - Recursive folder cleanup (`file_cleanup()`).  
