@@ -1,6 +1,6 @@
 # **CHANGELOG.md**  
 
-## v0.3
+## v0.3 (Current)
 - **Added**:
   - Boilerplate GUI model to organize-gui.py, further functionality needed.
 
