@@ -1,7 +1,9 @@
 // interface header file
 #include <iostream>
 #include <string>
+#include <map>
 
+// Argument overloads, enum = char(UPPERCASE)
 enum class ArgumentOverload{
     NONE = 0,
     TARGET_DIRECTORY = 68, // 68, 100 = D, d
@@ -9,8 +11,11 @@ enum class ArgumentOverload{
     DEFAULT_LOCATION = 1,
 };
 
+// Handler object
 struct Handler{
     public:
+    std::map<int, std::string> arguments;
+    std::string ROOT_LABEL;
     Handler();
     Handler(int argc, char* argv[]);
     void help();
