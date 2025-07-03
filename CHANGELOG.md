@@ -1,6 +1,10 @@
 # **CHANGELOG.md**  
 
-## v0.2 (Current)  
+## v0.3
+- **Added**:
+  - Boilerplate GUI model to organize-gui.py, further functionality needed.
+
+## v0.2
 - **Added**:  
   - Recursive folder cleanup (`file_cleanup()`).  
   - Support for nested directory scanning.
