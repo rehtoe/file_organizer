@@ -1,7 +1,7 @@
 /*  using c++ for the cli due 
     gcc accessibility to build the files into executables
     */
-
+#include "interface.h"
 /*  Use case:
     CUSTOM LOCATION
     root_label -l "/a/b/"
@@ -20,15 +20,6 @@
 
     
     */
-
-#define ROOT_LABEL "sort-dir"
-
-enum class ArgumentOverload{
-    NONE = 0,
-    TARGET_DIRECTORY = 68, // 68, 100 = D, d
-    TARGET_LOCATION = 76, // 76, 108 = L, l
-    DEFAULT_LOCATION = 1,
-};
 
 int main(int argc, char* argv[]){
 
