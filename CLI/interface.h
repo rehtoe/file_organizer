@@ -6,6 +6,8 @@
 // Argument overloads, enum = char(UPPERCASE)
 enum class ArgumentOverload{
     NONE = 0,
+    USAGE = 1,
+
     TARGET_DIRECTORY = 68, // 68, 100 = D, d
     TARGET_LOCATION = 76, // 76, 108 = L, l
     DEFAULT_LOCATION = 1,
@@ -19,7 +21,9 @@ struct Handler{
     Handler();
     Handler(int argc, char* argv[]);
     void help();
+
     int error(ArgumentOverload argumentType);
+    void parser();
     private:
     int ERROR_usage();
     int ERROR_sortDirectory();

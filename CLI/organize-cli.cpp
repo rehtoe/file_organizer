@@ -22,6 +22,7 @@
     */
 
 int main(int argc, char* argv[]){
-
+    Handler hndl(argc,argv);
+    hndl.help();
     return 0;
 }
