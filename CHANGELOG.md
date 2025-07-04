@@ -3,6 +3,7 @@
 ## v0.3 (Current)
 - **Added**:
   - Boilerplate GUI model to organize-gui.py, further functionality needed.
+  - Basic CLI structure done, seeking alternatives to file-stored data to having custom extensions
 
 ## v0.2
 - **Added**:  
